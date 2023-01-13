@@ -1,0 +1,232 @@
+DOTNET(.NET)
+
+-->"." Intelise feature.
+-->"NET" network enabled technology.
+-->dotnet is a "programming platform/framework" which is used to develop diff types of application.
+
+
+"platform/framework"
+
+C#,F#,J#,VB.NET (languages)
+
+HTML,CSS,JAVASCRIPT,JQUERY,AJAX,XML,ANGULAR.....
+
+ASP.NET/MVC/MVC-CORE -->technology for developing web application.
+
+
+Types of application:
+
+1.console app
+-->ATM M/C(no GUI),command prompt.
+
+2.windows app
+-->standalone/desktop 
+msoffice,tally
+
+3.web app
+-->has GUI,requires internet.
+facebook,google,gmail,shopping sites....
+
+4.web-api
+serve data to different applications.
+weather-info/live match updates...
+
+
+DOTNET-COMPONENTS:
+
+1.CLR->common language runtime.
+clr is the execution engine of .net.
+clr performs memory-management.
+clr performs garbage collection.
+
+2.BCL->Base class library.
+
+"namespace"
+
+using system;
+using system.io;
+using system.threading;
+using system.collections;
+using system.collections.generic;
+
+"namespace"-->n' classes-->n' functions/interfaces
+
+C# -PROGRAMMING:
+
+It is high-level programming language.
+It is object-oriented.
+
+using System;
+
+namespace ConsoleApp3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello World!");
+            Console.WriteLine("WELCOME TO C# PROGRAMMING");
+        }
+    }
+}
+
+
+ class Program
+    {
+        static void Main(string[] args)
+        {
+            int a, b;
+            a = 10;
+            b = 20;
+            int result = a + b;
+            Console.WriteLine("Sum of 2 numbers={0}",result);
+            Console.WriteLine("Sum of {0} and {1} is {2}",a,b,result);
+        }
+    }
+
+
+ class Program
+    {
+        static void Main(string[] args)
+        {
+            int a, b;
+            a = 56;
+            b = 20;
+            int result = a + b;
+            int product = a * b;
+            Console.WriteLine("Sum of 2 numbers={0}",result);
+            Console.WriteLine("Sum of {0} and {1} is {2}",a,b,result);
+            Console.WriteLine("Product of {0} and {1} is {2}", a, b, product);
+        }
+    }
+
+ class Program
+    {
+        static void Main(string[] args)
+        {
+            int a, b;
+            Console.WriteLine("enter 2 numbers");
+            a = int.Parse(Console.ReadLine());
+            b = int.Parse(Console.ReadLine());
+            int result = a + b;
+            int product = a * b;
+            Console.WriteLine("Sum of 2 numbers={0}",result);
+            Console.WriteLine("Sum of {0} and {1} is {2}",a,b,result);
+            Console.WriteLine("Product of {0} and {1} is {2}", a, b, product);
+        }
+    }
+
+
+ class Program
+    {
+        static void Main(string[] args)
+        {
+            double radius,Area;
+
+            Console.WriteLine("Input the circle radius");
+            radius = double.Parse(Console.ReadLine());
+
+            // Area = Math.PI * radius * radius;
+            Area = Math.PI * Math.Pow(radius, 2);
+
+            Console.WriteLine("Area of Circle={0}",Area);
+        }
+    }
+
+ static void Main(string[] args)
+        {
+            double radius,Area,Cir;
+
+            Console.WriteLine("Input the circle radius");
+            radius = double.Parse(Console.ReadLine());
+
+            // Area = Math.PI * radius * radius;
+            Area = Math.PI * Math.Pow(radius, 2);
+
+            Cir = 2 * Math.PI * radius;
+
+            Console.WriteLine("Area of Circle={0}",Area);
+            Console.WriteLine("Circumference of Circle={0}", Cir);
+
+        }
+
+ class Program
+    {
+        static void Main(string[] args)
+        {
+            string username="SCOTT",role="TEAM_LEAD";
+
+            //Console.WriteLine("Input name and role");
+            //username = Console.ReadLine();
+            //role = Console.ReadLine();
+
+            Console.WriteLine("Welcome={0},Your role is={1}",username,role);
+        }
+    }
+
+
+integer,
+
+double
+
+string
+
+char
+
+
+ static void Main(string[] args)
+        {
+            char ch='7'; //reads a single char,no/alpha/special 
+
+            //Console.WriteLine("Input name and role");
+            //username = Console.ReadLine();
+            //role = Console.ReadLine();
+
+            Console.WriteLine("character data is "+ch);
+            Console.WriteLine("character data is {0}",ch);
+        }
+
+ static void Main(string[] args)
+        {
+            char ch; //reads a single char,no/alpha/special 
+
+            Console.WriteLine("Input character data");
+            ch =char.Parse(Console.ReadLine());
+
+            Console.WriteLine("character data is "+ch);
+            Console.WriteLine("character data is {0}",ch);
+        }
+
+WAP to find the area of triangle using 
+s=a+b+c/2
+
+Area=sqrt(s(s-a)(s-b)(s-c))
+Math.Sqrt();
+
+WAP to read 4 subject marks,compute the total and average.
+
+WAP to find the SI=PTR/100;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

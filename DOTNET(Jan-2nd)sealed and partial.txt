@@ -1,0 +1,213 @@
+copy and clone
+
+static void Main(string[] args)
+        {
+            string str1 = "HELLO";
+            string str2 = string.Copy(str1);
+            Console.WriteLine(str2);
+
+            string str3 =(string)str1.Clone(); //refers to the memory address
+            Console.WriteLine(str3);
+        }
+
+  static void Main(string[] args)
+        {
+            string str1 = "HELLO,HOW ARE YOU";
+
+            char[] ch = new char[20];
+
+            str1.CopyTo(6, ch, 0, 11);
+
+            Console.WriteLine(ch);
+        }
+
+diff between == and equals()
+
+"==" 
+->operator
+->checks the reference of variable.
+->returns bool value
+
+equals()
+->method.
+->check the content.
+->returns bool value
+
+ static void Main(string[] args)
+        {
+            string str1 = "HELLO";
+
+            string str2 = "HAI";
+
+            Console.WriteLine(str1 == str2);
+            Console.WriteLine(str1.Equals(str2));
+        }
+
+static void Main(string[] args)
+        {
+            string str1 = "HELLO";
+
+            char[] ch = {'H','E','L','L','O' };
+
+            object str2 = new string(ch);
+
+            Console.WriteLine(str1 == str2);
+
+            Console.WriteLine(str1.Equals(str2));
+        }
+
+string->
+if string remains constant in application,choose string.
+c# strings are immutable(cannot be modified).
+
+
+stringbuilder
+if string undergoes modified/updated in application,choose stringbuilder.
+
+static void Main(string[] args)
+        {
+            StringBuilder sb = new StringBuilder("PROGRAMMING");//reference type
+
+            string str = "PROGRAMMING"; //reference type
+
+            Console.WriteLine(sb);
+
+            Console.WriteLine(str);
+        }
+
+namespace ConsoleApp3
+{   
+    class Demo
+    {
+        public void method1(string str1)
+        {
+            string str2= string.Concat("C#-", str1);
+            Console.WriteLine(str1);
+            Console.WriteLine(str2);
+        }
+
+        public void method2(StringBuilder str1)
+        {
+            str1.Append("-PROGRAMMING");
+            Console.WriteLine(str1);
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            StringBuilder sb = new StringBuilder("VB.NET");//reference type
+
+            string str = "PROGRAMMING"; //reference type
+
+            Demo obj = new Demo();
+            obj.method1(str);
+            obj.method2(sb);
+        }
+    }
+}
+
+value type:
+int,char,double,bool
+-->holds data within its own memory location.
+
+reference type
+object,array,class,interface,string,stringbuilder
+-->contains pointer to memory location,memory location holds the data.
+
+
+boxing and unboxing:
+
+Conversion form value type to reference type is boxing.
+
+int x = 100;
+object y = x; //boxing 
+
+Conversion form reference type to valuetype is boxing.
+
+int result =(int) y;  //unboxing
+
+is and as operator :
+
+is operator used to check runtime type of an object.
+
+class X
+    {
+
+    }
+    class Y
+    {
+
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            X obj1 = new X();
+            Y obj2 = new Y();
+            Console.WriteLine(obj1 is object);
+            Console.WriteLine(obj1 is X);
+            Console.WriteLine(obj2 is object);
+            Console.WriteLine(obj2 is Y);
+        }
+    }
+
+as operator is used to perform conversion between types.
+
+namespace ConsoleApp3
+{   
+    class X
+    {
+
+    }
+    class Y
+    {
+
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            object[] obj = new object[5];
+            obj[0] = 10;
+            obj[1] = "hello";
+            obj[2] = new X();
+            obj[3] = new Y();
+            obj[4] = true;
+
+            for(int i=0;i<obj.Length;i++)
+            {
+                string s = obj[i] as string;
+                Console.WriteLine(s);
+                if (s != null)
+                    Console.WriteLine(s);
+                else
+                    Console.WriteLine("not a string");
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

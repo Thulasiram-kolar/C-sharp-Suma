@@ -1,0 +1,170 @@
+Constructor and Destructor:
+->It is the member of class,which is used to initialise the data-members/entites of class
+(allocates the memory for objects).
+->constructor name is same as class name.
+->constructor should be public.
+-> types of constructor
+  1.Default
+  2.Parameterised
+  3.Copy
+
+
+Destructor:
+->Destructor is used to de-allocate the memory of objects.
+->destructor name is same as class name.
+->destructor is public by default.
+->destructor  should be preceded by tilde (~) operator.
+
+using System;
+
+namespace ConsoleApp3
+{
+    class Triangle
+    {
+        double bs, ht;
+
+        public Triangle() //Default constructor
+        {
+            bs = 10;
+            ht = 20;
+        }
+
+        public Triangle(double bs, double ht) //parameterised constructor
+        {
+            this.bs = bs;
+            this.ht = ht;
+        }
+
+        public Triangle(Triangle Tobj) //Copy constructor
+        {
+            this.bs = Tobj.bs;
+            this.ht = Tobj.ht;
+        }
+
+        public double area()
+        {
+            return (0.5 * this.bs * this.ht);
+        }
+
+        public double check() // ?: ternary operator
+        {
+            return (this.bs > this.ht ? this.bs : this.ht);
+        }
+
+        //destructor
+        ~Triangle()   //[~ tilde operator]
+        {
+            Console.WriteLine("object destroyed");
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("-----Invoking default const------");
+            Triangle obj1 = new Triangle();
+            Console.WriteLine("Area of triangle=" + obj1.area());
+            Console.WriteLine("greatest of 2 sides=" + obj1.check());
+
+            Console.WriteLine("-----Invoking param const------");
+            Triangle obj2 = new Triangle(20, 40);
+            Console.WriteLine("Area of triangle=" + obj2.area());
+            Console.WriteLine("greatest of 2 sides=" + obj2.check());
+
+            Console.WriteLine("-----Invoking param const------");
+            Triangle obj4 = new Triangle(25, 45);
+            Console.WriteLine("Area of triangle=" + obj4.area());
+            Console.WriteLine("greatest of 2 sides=" + obj4.check());
+
+            Console.WriteLine("-----Invoking copy const------");
+            Triangle obj3 = new Triangle(obj2);
+            Console.WriteLine("Area of triangle=" + obj3.area());
+            Console.WriteLine("greatest of 2 sides=" + obj3.check());
+
+        }
+    }
+}
+
+ref,out,params
+
+
+// call by value
+namespace ConsoleApp3
+{
+    class Demo
+    {
+        public void interchange(int x,int y) //x=10,y=20
+        {
+            int temp;
+            temp = x;   //temp=10
+            x = y;      //x=20
+            y = temp;   //y=10
+            Console.WriteLine("x=" + x + "," + "y=" + y);
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Demo obj = new Demo();
+            obj.interchange(10, 20); // call by value
+        }
+    }
+}
+
+Call by reference:
+
+namespace ConsoleApp3
+{
+    class Demo
+    {
+        public void interchange(ref int x,ref int y) //x=10,y=20
+        {
+            int temp;
+            temp = x;   //temp=10
+            x = y;      //x=20
+            y = temp;   //y=10
+            Console.WriteLine("x=" + x + "," + "y=" + y);
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int x = 10, y = 20;
+            Demo obj = new Demo();
+            obj.interchange(ref x, ref y); // call by reference
+        }
+    }
+}
+
+"out" :
+
+namespace ConsoleApp3
+{
+    class Demo
+    {
+        public void Method1(int x,int y,out int R1,out int R2,out int R3) 
+        {
+            R1 = x + y;
+            R2 = x * y;
+            R3 = x * x + y * y + (2 * x * y);
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int x = 10, y = 20,R1,R2,R3;
+            Demo obj = new Demo();
+            obj.Method1(x, y, out R1, out R2,out R3);
+            Console.WriteLine("Sum=" + R1);
+            Console.WriteLine("Product=" + R2);
+            Console.WriteLine("Result=" + R3);
+        }
+    }
+}
+
+
+

@@ -1,0 +1,283 @@
+params:
+when the number of parameter's to the function are not known add the "params"
+modifier to parameter.
+
+namespace ConsoleApp3
+{   
+    class Data
+    {
+        public void display(params int []a)
+        {
+            foreach(int i in a)
+            {
+                Console.WriteLine(i);
+            }
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Data obj = new Data();
+            obj.display(10, 20, 30, 40, 50);
+
+            Console.WriteLine("-------------");
+            obj.display(100, 200);
+
+            Console.WriteLine("-------------");
+            int[] x = new int[3] {45,55,65 };
+            obj.display(x);
+        }
+    }
+}
+
+
+namespace ConsoleApp3
+{   
+    //pid,pname,cat,pdesc,price
+    class Data
+    {
+        public void display(params double []a)
+        {
+            foreach(double i in a)
+            {
+                Console.WriteLine(i);
+            }
+        }
+
+        public void PrintDetails(params object []a)
+        {
+            foreach (var i in a)
+            {
+                Console.WriteLine(i);
+            }
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Data obj = new Data();
+            obj.display(10.78, 20.78, 30, 40, 50);
+
+            Console.WriteLine("-------------");
+            obj.display(100, 200);
+
+            Console.WriteLine("-------------");
+            double[] x = new double[3] {45,55,65 };
+            obj.display(x);
+
+            Console.WriteLine("-------------");
+            obj.PrintDetails(1,"LCD","ELECTRONICS","SAMSUNG LCD 40'",45000.78);
+        }
+    }
+}
+
+
+Methods with optional/Default parameter:
+
+namespace ConsoleApp3
+{   
+    class Data
+    {
+        public void PrintStudentData(int Rollno,string Sname,string Branch="CS")
+        {
+           Console.WriteLine("Rollno="+Rollno);
+           Console.WriteLine("Student Name=" + Sname);
+           Console.WriteLine("Branch=" + Branch);
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Data obj = new Data();
+            obj.PrintStudentData(1, "Jay");
+
+            Data obj1 = new Data();
+            obj1.PrintStudentData(11, "Ajay","Electronics");
+        }
+    }
+}
+
+Named parameter:
+
+namespace ConsoleApp3
+{   
+    class Data
+    {
+        public void PrintStudentData(int Rollno,string Sname,string Branch="CS")
+        {
+           Console.WriteLine("Rollno="+Rollno);
+           Console.WriteLine("Student Name=" + Sname);
+           Console.WriteLine("Branch=" + Branch);
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Data obj = new Data();
+            obj.PrintStudentData(1, "Jay");
+
+            Console.WriteLine("------------");
+            Data obj1 = new Data();
+            obj1.PrintStudentData(11, "Ajay","Electronics");
+
+            Console.WriteLine("------------");
+            //named parameter
+            obj1.PrintStudentData(Sname:"Sujal", Branch:"MECHANICAL", Rollno:15);
+
+            //named parameter
+            Console.WriteLine("------------");
+            obj1.PrintStudentData(Sname: "Sunil", Rollno: 25);
+        }
+    }
+}
+
+Static:
+static method and non-static method
+static variable and non-static variable
+static contructor and non-constructor
+
+namespace ConsoleApp3
+{   
+    class Data
+    {
+        public static void Print1()
+        {
+            Console.WriteLine("static method");
+        }
+
+        public void Print2()
+        {
+            Console.WriteLine("non-static method");
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Data obj1 = new Data();
+            obj1.Print2();
+
+            Data obj2 = new Data();
+            obj2.Print2();
+
+            Data.Print1();
+        }
+    }
+}
+
+  class Circle
+    {
+        int radius;
+        static double pi;
+
+        public Circle(int radius)
+        {
+            this.radius = radius;
+        }
+
+        static Circle()
+        {
+            Circle.pi = Math.PI;
+        }
+
+        public double Area()
+        {
+            //return (Circle.pi*this.radius*this.radius);
+            return (pi * radius * radius);
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Circle obj1 = new Circle(15);
+            Console.WriteLine("Area if circle="+ obj1.Area());
+
+            Circle obj2 = new Circle(25);
+            Console.WriteLine("Area if circle=" + obj2.Area());
+        }
+    }
+}
+
+
+namespace ConsoleApp3
+{   
+    class Employee
+    {
+        int empcode;
+        string ename;
+        static string dept;
+
+        public Employee(int empcode, string ename)
+        {
+            this.empcode = empcode;
+            this.ename = ename;
+        }
+
+        static Employee()
+        {
+            Employee.dept = "S/W DEV";
+        }
+
+        public void PrintInfo()
+        {
+            Console.WriteLine(empcode+","+ename+","+dept);
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Employee obj = new Employee(1, "john");
+            obj.PrintInfo();
+
+            Console.WriteLine("-----------------");
+            Employee obj1 = new Employee(2, "johny");
+            obj1.PrintInfo();
+        }
+    }
+}
+
+namespace ConsoleApp3
+{   
+    class Employee
+    {
+        public Employee()
+        {
+            Console.WriteLine("non-static constr");
+        }
+
+        static Employee()
+        {
+            Console.WriteLine("static constr");
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Employee obj = new Employee();
+        }
+    }
+}
+
+
+Inheritance:
+
+
+
+
+
+
+
+
+
+
+
+
+

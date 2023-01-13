@@ -1,0 +1,240 @@
+Control statements:
+2 types
+1.Conditional
+if,if-else,nested-elseif,switch-case
+
+2.Iterational
+while,do-while,for,foreach
+
+Operators:
+Arithmetic->+,-,*,/,%
+
+Relational :  >,<,<=,>=,==
+
+Logical : && (and)
+             || (or)
+              ! (not)
+
+
+ static void Main(string[] args)
+        {
+            int a, b;
+
+            Console.WriteLine("Input 2 numbers");
+            a = int.Parse(Console.ReadLine());
+            b = int.Parse(Console.ReadLine());
+
+            if(a>b)
+            Console.WriteLine("{0} is greater than {1}",a,b);
+            else
+            Console.WriteLine("{0} is greater than {1}",b,a);
+        }
+
+ static void Main(string[] args)
+        {
+            int a, b;
+
+            Console.WriteLine("Input 2 numbers");
+            a = int.Parse(Console.ReadLine());
+            b = int.Parse(Console.ReadLine());
+
+            if(a>b)
+            Console.WriteLine("{0} is greater than {1}",a,b);
+            else if(a<b)
+            Console.WriteLine("{0} is greater than {1}",b,a);
+            else //if(a==b)
+            Console.WriteLine("{0} is equal to {1}", b, a);
+        }
+
+static void Main(string[] args)
+        {
+            int a, b,c; //1000,200,30
+
+            Console.WriteLine("Input 3 numbers");
+            a = int.Parse(Console.ReadLine());
+            b = int.Parse(Console.ReadLine());
+            c = int.Parse(Console.ReadLine());
+
+            if (a>b && a>c)
+            Console.WriteLine("{0} is greater",a);
+            else if(b>a && b>c)
+            Console.WriteLine("{0} is greater",b);
+            else //if(c>a && c>b)
+            Console.WriteLine("{0} is greater", c);
+        }
+
+static void Main(string[] args)
+        {
+            char a; //alpha/no/special
+
+            Console.WriteLine("Input a character");
+            a = char.Parse(Console.ReadLine());
+
+            if (a>='a' && a<='z')
+            {
+                Console.WriteLine("{0} is small-alpha", a);
+            }
+            else if (a >= 'A' && a <= 'Z')
+            {
+                Console.WriteLine("{0} is caps-alpha", a);
+            }
+            else if (a >= '0' && a <= '9')
+                Console.WriteLine("{0} is number", a);
+            else 
+                Console.WriteLine("{0} is special", a);
+        }
+
+//Vowel or consonant
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            char a; //alpha/no/special
+
+            Console.WriteLine("Input a character");
+            a = char.Parse(Console.ReadLine()); //u
+
+            if (a=='a' || a=='e' || a=='i' || a=='o' || a=='u' )
+            {
+                Console.WriteLine("{0} is Vowel", a);
+            }
+            else 
+                Console.WriteLine("{0} is consonant", a);
+        }
+    }
+
+ //70-100 A
+        static void Main(string[] args)
+        {
+            double s1, s2, s3;
+            Console.WriteLine("Input Marks in s1,s2,s3");
+            s1 = double.Parse(Console.ReadLine());
+            s2 = double.Parse(Console.ReadLine());
+            s3 = double.Parse(Console.ReadLine());
+
+            double avg = (s1 + s2 + s3) / 3;
+
+            if (avg>=0 && avg<=34)
+            {
+                Console.WriteLine("{0} is average,Grade=D",avg);
+            }
+            else if(avg >= 35 && avg <= 49)
+                Console.WriteLine("{0} is average,Grade=C", avg);
+            else if (avg >= 50 && avg <= 69)
+                Console.WriteLine("{0} is average,Grade=B", avg);
+            else
+                Console.WriteLine("{0} is average,Grade=A", avg);
+ }
+
+
+class Program
+    {
+        static void Main(string[] args)
+        {
+            string mailid, password;
+            Console.WriteLine("Input Login credentials");
+            mailid = (Console.ReadLine());
+            password =(Console.ReadLine());
+
+            if (mailid == "abc@xyz.com" && password == "admin123")
+                Console.WriteLine("Valid User");
+            else
+                Console.WriteLine("Invalid User");
+        }
+    }
+
+ //Number is odd/even
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int no;
+            Console.WriteLine("Input a number");
+            no = int.Parse(Console.ReadLine());
+
+            if (no%2==0)
+                Console.WriteLine("{0} is even",no);
+            else
+                Console.WriteLine("{0} is odd", no);
+        }
+    }
+
+switch-case:
+
+switch(choice=20)
+{
+case 1:
+        break;
+case 2:
+        break;
+case 3:
+        break;
+default:
+        break;
+}
+
+
+static void Main(string[] args)
+        {
+            int choice;
+            Console.WriteLine("Input your choice[1/2/3]");
+            choice = int.Parse(Console.ReadLine());
+
+            switch (choice)
+            {
+                case 1:
+                    Console.WriteLine("C#,ASP.NET,MVC,API");
+                    break;
+                case 2:
+                    Console.WriteLine("PHP,MYSQL");
+                    break;
+                case 3:
+                    Console.WriteLine("HTML,CSS,JS,JQUERY");
+                    break;
+                default:
+                    Console.WriteLine("INVALID CHOICE");
+                    break;
+            }
+        }
+
+using System;
+
+namespace ConsoleApp3
+{
+    //Number is odd/even
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int choice,no=0;
+            Console.WriteLine("Input your choice[1/2]");
+            choice = int.Parse(Console.ReadLine());
+
+            if(choice==1 || choice==2)
+            {
+                Console.WriteLine("Input a number");
+                no = int.Parse(Console.ReadLine());
+            }
+
+            switch (choice)
+            {
+                case 1:
+                    Console.WriteLine("Square of number="+Math.Pow(no,2));
+                    break;
+                case 2:
+                    Console.WriteLine("Cube of number=" + Math.Pow(no, 3));
+                    break;
+                default:
+                    Console.WriteLine("INVALID CHOICE");
+                    break;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+

@@ -1,0 +1,230 @@
+Arrays and strings.
+
+Object oriented programming:
+
+->classes and objects
+->constructor and destructor
+->Inheritance and types
+->Interfaces
+->static,method,variable,class
+->Polymorphism 2types
+  compile-time ,runtime
+
+classes and objects:
+
+class Demo
+{
+//code
+}
+
+for(int i=0;i<10;i++)
+{
+Demo obj1=new Demo();
+}
+
+class is collection of data-members/business entities,business methods/member functions.
+
+3 types of access specifier/modifiers
+1.private
+2.protected
+3.public
+
+namespace ConsoleApp3
+{
+    class Book
+    {
+      int book_id;
+      string bookname;
+      public double price;
+
+        public void InputBookdata()
+        {
+            Console.WriteLine("Enter book details");
+            book_id = int.Parse(Console.ReadLine());
+            bookname = (Console.ReadLine());
+            price = double.Parse(Console.ReadLine());
+        }
+
+        public void displayinfo()
+        {
+            Console.WriteLine("Book id="+book_id);
+            Console.WriteLine("Book name=" + bookname);
+            Console.WriteLine("Book price=" + price);
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Book bookobj1 = new Book(); //[     ]
+            bookobj1.InputBookdata(); //[1,"C# PRO",4500 ]
+            bookobj1.displayinfo(); //1,"C# PRO",4500
+
+            Book bookobj2 = new Book(); //[     ]
+            bookobj2.InputBookdata(); //[2,"C++",1500 ]
+            bookobj2.displayinfo(); //2,"C++",1500
+
+            Book bookobj3 = new Book(); //[     ]
+            bookobj3.InputBookdata(); //[3,JQUERY,3500]
+            bookobj3.displayinfo();
+
+            double total_price = bookobj1.price + bookobj2.price + bookobj3.price;
+            Console.WriteLine("total price="+total_price);
+        }
+    }
+}
+
+
+Account Details [500]
+accno
+achname
+depositamt
+
+
+namespace ConsoleApp3
+{
+    class AccountDet
+    {
+      string Accno;
+      string Ahname;
+      public double depamt;
+
+        public void GetAccdet()
+        {
+            Console.WriteLine("Enter account details");
+            Accno = Console.ReadLine();
+            Ahname = (Console.ReadLine());
+            depamt = double.Parse(Console.ReadLine());
+        }
+
+        public void Printaccdet()
+        {
+            Console.WriteLine("Accno="+Accno);
+            Console.WriteLine("Account holders Name=" + Ahname);
+            Console.WriteLine("Deposit Amount=" + depamt);
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            AccountDet acc1 = new AccountDet();
+            acc1.GetAccdet();
+
+            AccountDet acc2 = new AccountDet();
+            acc2.GetAccdet();
+
+            Console.WriteLine("-------Acc_Details--------");
+            acc1.Printaccdet();
+            acc2.Printaccdet();
+            Console.WriteLine("--------------------------");
+            Console.WriteLine("Total Deposit amount="+(acc1.depamt+acc2.depamt));
+        }
+    }
+}
+
+namespace ConsoleApp3
+{
+    class Demo
+    {
+        int a, b, c;
+
+        public void GetNumbers()
+        {
+            Console.WriteLine("Enter 3 numbers");
+            a = int.Parse(Console.ReadLine());
+            b = int.Parse(Console.ReadLine());
+            c = int.Parse(Console.ReadLine());
+        }
+
+        public void Addnos()
+        {
+            Console.WriteLine("Sum of nos=" + (a+b+c));
+        }
+
+        public void Diffnos()
+        {
+            Console.WriteLine("Diff of numbers=" + (a-b-c));
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Demo d1 = new Demo();
+            d1.GetNumbers();
+            d1.Addnos();
+            d1.Diffnos();
+        }
+    }
+}
+
+namespace ConsoleApp3
+{
+    class Demo
+    {
+        int a, b, c;
+
+        //parameterised method
+        public void GetNumbers(int x,int y,int z)
+        {
+            a = x;
+            b = y;
+            c = z;
+        }
+
+        public void Addnos()
+        {
+            Console.WriteLine("Sum of nos=" + (a+b+c));
+        }
+
+        public void Diffnos()
+        {
+            Console.WriteLine("Diff of numbers=" + (a-b-c));
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Demo d1 = new Demo();
+            d1.GetNumbers(45,10,30);
+            d1.Addnos();
+            d1.Diffnos();
+
+            Demo d2 = new Demo();
+            d2.GetNumbers(50,30,10);
+            d2.Addnos();
+            d2.Diffnos();
+        }
+    }
+}
+
+WAP using class and objects to store department id,name,no_of_employees.
+1.display 3 department details.
+2.total_no_employees.
+
+WAP using class and object to find the area of triangle.
+create 2 objects.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

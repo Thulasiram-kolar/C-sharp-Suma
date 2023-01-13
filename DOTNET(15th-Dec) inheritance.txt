@@ -1,0 +1,160 @@
+Inheritance:
+method of deriving features of base class(parent) in derived(child) class.
+provides code-reusability.
+
+Types
+
+1.Single
+2.Multilevel
+3.Multiple (not supported) ,interface
+4.Heirarchial
+5.Hybrid
+
+namespace ConsoleApp3
+{   
+    class Demo1
+    {
+        protected int x, y;
+        public void getnos()
+        {
+            Console.WriteLine("Enter 2 numbers");
+            x = int.Parse(Console.ReadLine());
+            y = int.Parse(Console.ReadLine());
+        }
+    }
+    class Demo2:Demo1  
+    {
+        int result;
+
+        public void compute()
+        {
+            result = x + y;
+            Console.WriteLine("sum =" + result);
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Demo2 obj = new Demo2();
+            obj.getnos();
+            obj.compute();
+        }
+    }
+}
+
+Multi-level:
+
+namespace ConsoleApp3
+{   
+    class Demo1
+    {
+        protected int x, y;
+        public void getnos()
+        {
+            Console.WriteLine("Enter 2 numbers");
+            x = int.Parse(Console.ReadLine());
+            y = int.Parse(Console.ReadLine());
+        }
+    }
+    class Demo2:Demo1  
+    {
+        protected int z;
+        public void get_Z()
+        {
+            Console.WriteLine("enter the value of Z");
+            z = int.Parse(Console.ReadLine());
+        }
+        public void compute()
+        {
+            Console.WriteLine("sum =" + (x+y));
+        }
+    }
+    class Demo3 : Demo2
+    {
+        public void calculate()
+        {
+            Console.WriteLine("Product="+(x*y*z));
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Demo3 obj = new Demo3();
+            obj.getnos();
+            obj.compute();
+            obj.get_Z();
+            obj.calculate();
+        }
+    }
+}
+
+Heirarchial:
+
+namespace ConsoleApp3
+{   
+    class Demo
+    {
+        protected int d1, d2;
+        public void get_dimension()
+        {
+            Console.WriteLine("Enter 2 dimensions");
+            d1 = int.Parse(Console.ReadLine());
+            d2 = int.Parse(Console.ReadLine());
+        }
+    }
+    class Demo1:Demo 
+    {
+        public int add()
+        {
+            return (d1 + d2);
+        }
+    }
+    class Demo2 : Demo
+    {
+        public int Diff()
+        {
+            return (d1 - d2);
+        }
+    }
+    class Demo3 : Demo
+    {
+        public int product()
+        {
+            return (d1 * d2);
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Demo1 obj1 = new Demo1();
+            obj1.get_dimension();
+           Console.WriteLine("sum="+ obj1.add());
+
+            Demo2 obj2 = new Demo2();
+            obj2.get_dimension();
+            Console.WriteLine("Diff=" + obj2.Diff());
+
+            Demo3 obj3 = new Demo3();
+            obj3.get_dimension();
+            Console.WriteLine("Product=" + obj3.product());
+        }
+    }
+}
+
+WAP using single inheritance to store
+student_Details(base,rollno,name,m1,m2)----->Result_Details(derived,rollno,name,total)
+
+WAP using multi-level inheritance 
+employee_Data(empname,Empid)--->Dept_data(dname,noofemp)--->Final (empname,empid,dname,noofemp)
+
+
+
+
+
+
+

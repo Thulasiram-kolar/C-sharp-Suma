@@ -1,0 +1,241 @@
+Interface:
+constructor inheritance
+Abstract class
+
+Sealed class
+Partial class
+static class
+polymorphism
+
+
+concrete method/non-abstract method->method with definition
+abstract method->method without definition
+
+Interface:
+-->It is collection of abstract methods(method without definition)
+-->variables are not allowed.
+-->methods of interface are public bydefault.
+-->All methods of interface should be implemented.
+
+using System;
+
+namespace ConsoleApp3
+{   
+    interface Interface_One
+    {
+        void displaydata();
+        void print(string x, string y);
+    }
+    class Demo : Interface_One
+    {
+        public void displaydata()
+        {
+            Console.WriteLine("first method of interface");
+        }
+
+        public void print(string x, string y)
+        {
+            Console.WriteLine("Result="+string.Concat(x,y));
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Demo obj = new Demo();
+            obj.displaydata();
+            obj.print("C#-", "PROGRAMMING");
+        }
+    }
+}
+
+
+
+using System;
+
+namespace ConsoleApp3
+{   
+    interface Interface_One
+    {
+        void displaydata();
+        void print(string x, string y);
+    }
+    interface Interface_Two
+    {
+        int compute(int x, int y);
+        double calculate(int x, int y, int z);
+    }
+
+    class Demo : Interface_One,Interface_Two
+    {
+        public double calculate(int x, int y, int z)
+        {
+            return (x*y*z);
+        }
+
+        public int compute(int x, int y)
+        {
+            return (x+y);
+        }
+
+        public void displaydata()
+        {
+            Console.WriteLine("first method of interface");
+        }
+
+        public void print(string x, string y)
+        {
+            Console.WriteLine("Result="+string.Concat(x,y));
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Demo obj = new Demo();
+            obj.displaydata();
+            obj.print("C#-", "PROGRAMMING");
+           Console.WriteLine("Result1=" +obj.calculate(10, 20, 30));
+           Console.WriteLine("Result2=" + obj.compute(10, 45));
+        }
+    }
+}
+
+using System;
+
+namespace ConsoleApp3
+{   
+    interface Interface_One
+    {
+        void displaydata();
+    }
+    interface Interface_Two
+    {
+        void displaydata();
+    }
+
+    class Demo : Interface_One, Interface_Two
+    {
+        void Interface_One.displaydata()
+        {
+            Console.WriteLine("product details");
+        }
+
+        void Interface_Two.displaydata()
+        {
+            Console.WriteLine("category details");
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Demo obj = new Demo();
+            ((Interface_One)obj).displaydata();
+            ((Interface_Two)obj).displaydata();
+        }
+    }
+}
+
+Constructor Inheritance:
+
+using System;
+
+namespace ConsoleApp3
+{   
+    class Category
+    {
+       protected string cname;
+       protected string cdesc;
+        public Category(string cname,string cdesc)
+        {
+            this.cname = cname;
+            this.cdesc = cdesc;
+        }
+    }
+
+    class Product :Category
+    {
+        string pname;
+        double unitprice;
+        public Product(string cname, string cdesc,string pname,double unitprice):base(cname,cdesc)
+        {
+            this.pname = pname;
+            this.unitprice = unitprice;
+        }
+
+        public void Display()
+        {
+            Console.WriteLine("Cname="+cname+",Cat_desc="+cdesc);
+            Console.WriteLine("pro_name=" + pname + "Price=" + unitprice);
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Product obj = new Product("stationary", "All engg and medical books", "ENGG MATHS", 4500);
+            obj.Display();
+        }
+    }
+}
+
+Abstract class:
+
+interface: 
+cannot be instantiated(no objects)
+cannot have variables.
+has only abstract methods.
+is implemented in class.
+
+Abstract class:
+cannot be instantiated(no objects)
+can have variables.
+can have both abstract method and non-abstract method.
+is inherited in class.
+
+using System;
+
+namespace ConsoleApp3
+{   
+    abstract class Example
+    {
+        protected string x, y;
+
+        public void getstrings()
+        {
+            Console.WriteLine("Enter 2 strings");
+            x = Console.ReadLine();
+            y = Console.ReadLine();
+        }
+
+       public abstract string combine();
+    }
+
+    class Example_one : Example
+    {
+        public override string combine()
+        {
+            return (string.Concat(x, y));
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Example_one obj = new Example_one();
+            obj.getstrings();
+            Console.WriteLine("New string is=" + obj.combine());
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,273 @@
+Array
+single,object.
+Two and Jagged.
+
+2,2=4
+
+      j=0        j=1      j=2
+i=0 10[00]   20[01]  30[02]
+
+i=1 30[10]   30[11]  40[12]
+
+i=2 50[20]  60[21]   70[22]
+
+
+class Program
+    {
+        static void Main(string[] args)
+        {
+            int[,] a = new int[2, 2] { {100,200 },{400,600 } };
+
+            int[,] b = new int[3, 3] { {10,20,30 },{40,50,60 },{70,80,90 } };
+            
+
+            for(int i=0;i<3;i++)
+            {
+                for(int j=0;j<3;j++)
+                {
+                    Console.Write(b[i,j]+"\t");
+                }
+                Console.WriteLine("\n\n");
+            }
+        }
+    }
+
+namespace ConsoleApp3
+{   
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[,] a = new int[2, 2];
+
+            Console.WriteLine("Enter the array elements");
+
+            for (int i = 0; i < 2; i++)
+            {
+                for (int j = 0; j < 2; j++)
+                {
+                  a[i,j]=int.Parse(Console.ReadLine());
+                }
+            }
+
+            Console.WriteLine("The array is:");
+            for (int i=0;i<2;i++)
+            {
+                for(int j=0;j<2;j++)
+                {
+                    Console.Write(a[i,j]+"\t");
+                }
+                Console.WriteLine("\n\n");
+            }
+        }
+    }
+}
+
+namespace ConsoleApp3
+{   
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[,] a = new int[2, 2];
+            int[,] b = new int[2, 2];
+            int[,] c = new int[2, 2];
+
+            Console.WriteLine("Enter the array a elements");
+            for (int i = 0; i < 2; i++)
+            {
+                for (int j = 0; j < 2; j++)
+                {
+                  a[i,j]=int.Parse(Console.ReadLine());
+                }
+            }
+
+            Console.WriteLine("Enter the array b elements");
+            for (int i = 0; i < 2; i++)
+            {
+                for (int j = 0; j < 2; j++)
+                {
+                    b[i, j] = int.Parse(Console.ReadLine());
+                }
+            }
+
+            Console.WriteLine("The array is:");
+            for (int i=0;i<2;i++)
+            {
+                for(int j=0;j<2;j++)
+                {
+                    c[i, j] = a[i, j] + b[i, j];
+                    Console.Write(c[i,j]+"\t");
+                }
+                Console.WriteLine("\n\n");
+            }
+        }
+    }
+}
+
+class Program
+    {
+        static void Main(string[] args)
+        {
+            int[,] a = new int[2, 2]; //{{10,20},{30,40}}
+
+            int total = 0;
+
+            Console.WriteLine("Enter the array a elements");
+            for (int i = 0; i < 2; i++)
+            {
+                for (int j = 0; j < 2; j++)
+                {
+                  a[i,j]=int.Parse(Console.ReadLine());
+                }
+            }
+
+            Console.WriteLine("The array is:");
+            for (int i=0;i<2;i++)
+            {
+                for(int j=0;j<2;j++)
+                {
+                    total=total+a[i,j];
+                }
+            }
+            Console.WriteLine("Sum of all array elements="+total);
+        }
+    }
+}
+
+Jagged array:
+"group of arrays"/"collection of arrays"
+
+class Program
+    {
+        static void Main(string[] args)
+        {
+            int[][] Jdarray1 = new int[3][];
+
+            Jdarray1[0] = new int[] {10,20,30,40 };
+            Jdarray1[1] = new int[] { 10, 20 };
+            Jdarray1[2] = new int[] { 10, 20, 30, 40,50,60,70 };
+
+
+            Console.WriteLine("Jagged array is");
+            for (int i = 0; i < Jdarray1.Length; i++)
+            {
+                for (int j = 0; j < Jdarray1[i].Length; j++)
+                {
+                    Console.Write(Jdarray1[i][j]+"\t");
+                }
+                Console.WriteLine("\n");
+            }
+        }
+    }
+
+ static void Main(string[] args)
+        {
+            object[][] Jdarray1 = new object[3][];
+
+            Jdarray1[0] = new object[] {1,2,3,4 };
+            Jdarray1[1] = new object[] { "S/W DEV", "S/W TESTING", "WEB-DESIGN", "HR" };
+            Jdarray1[2] = new object[] {200,50,30,5};
+
+            Console.WriteLine("Jagged array is");
+            for (int i = 0; i < Jdarray1.Length; i++)
+            {
+                for (int j = 0; j < Jdarray1[i].Length; j++)
+                {
+                    Console.Write(Jdarray1[i][j]+"\t");
+                }
+                Console.WriteLine("\n");
+            }
+        }
+
+Strings in c#:
+string is group of character data.
+
+string str1;
+str1="john123@gmail.com";
+
+static void Main(string[] args)
+        {
+            string str1;
+            str1 = "string functions in c#";
+
+            Console.WriteLine(str1.Length);
+            Console.WriteLine(str1.IndexOf('f'));
+            Console.WriteLine(str1.LastIndexOf('i'));
+
+            string str2 = str1.Remove(6);
+            Console.WriteLine(str2);
+
+            string s3 = str1.Replace('#', '.');
+            Console.WriteLine(s3);
+
+            string s4 = str1.Replace("c#", "vb.net");
+            Console.WriteLine(s4);
+
+            string[] s5 = str1.Split(' ');
+            foreach(string i in s5)
+            {
+                Console.WriteLine(i);
+            }
+
+        }
+    }
+
+ static void Main(string[] args)
+        {
+            string str1,str2;
+            str1 = "string functions in c#";
+            str2 = "string functions in VB.NET";
+
+            Console.WriteLine(string.Compare(str1, str2));
+            //str1==str2  0, str1>str2 1 str1<str2 -1
+        }
+
+ static void Main(string[] args)
+        {
+            string str1;
+            str1 = "string functions in c#";
+
+            CharEnumerator ch = str1.GetEnumerator();
+
+            while(ch.MoveNext())
+            {
+                Console.WriteLine(ch.Current);
+            }
+
+            string s2 = str1.Insert(6, "--->");
+            Console.WriteLine(s2);
+
+            string[] result = {"welcome","to","web","designing" };
+
+            string str3 = string.Join(" ", result);
+
+            Console.WriteLine(str3);
+
+            Console.WriteLine(str1.StartsWith("s"));
+            Console.WriteLine(str1.EndsWith("*"));
+            Console.WriteLine(str1.Contains("c#"));
+        }
+    }
+}
+
+stringbuilder
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,239 @@
+object array:
+
+collection of homogenous elements.
+int []a=new int[4]{10,20,30,40};
+
+collection of heterogenous elements.
+object []product=new object[6]{1,"book",2,"pencil",3,"pen"};
+
+static void Main(string[] args)
+        {
+            object[] product = new object[] { 1, "book",40.55, 2, "pencil",10.22, 3, "pen",100.23 };
+
+            for (int i = 0; i < product.Length; i++)
+            {
+              Console.WriteLine(product[i]);
+            }
+
+            foreach(var i in product)
+            {
+                Console.WriteLine(i);
+            }
+        }
+
+class and object:
+method with parameter and return type.
+
+namespace ConsoleApp3
+{   
+    class customer
+    {
+        int cid;
+        string cname;
+
+        public void getcustdet(int a,string b)
+        {
+            cid = a;
+            cname = b;
+        }
+
+        public void display()
+        {
+            Console.WriteLine(cid + "," + cname);
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            customer c1 = new customer();
+            c1.getcustdet(1, "INFY");
+            c1.display();
+
+            customer c2 = new customer();
+            c2.getcustdet(2, "IBM");
+            c2.display();
+        }
+    }
+}
+
+"this" pointer
+is used to eliminate ambiguity between the data-member and member functions.
+
+namespace ConsoleApp3
+{   
+    class customer
+    {
+        int cid;
+        string cname;
+
+        //"this" pointer
+        public void getcustdet(int cid,string cname)
+        {
+            //cid = cid;  //ambuigity/conflict
+            //cname = cname;
+            this.cid = cid;
+            this.cname = cname;
+        }
+
+        public void display()
+        {
+            Console.WriteLine(this.cid + "," + this.cname);
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            customer c1 = new customer();
+            c1.getcustdet(1, "INFY");
+            c1.display();
+
+            customer c2 = new customer();
+            c2.getcustdet(2, "IBM");
+            c2.display();
+        }
+    }
+}
+
+
+Methods with return type:
+
+namespace ConsoleApp3
+{   
+    class Data
+    {
+        int x, y;
+
+        public void getnumbers()
+        {
+            Console.WriteLine("Enter 2 numbers");
+            x = int.Parse(Console.ReadLine());
+            y = int.Parse(Console.ReadLine());
+        }
+
+        public int add()
+        {
+            return (x+y);
+        }
+
+        public int diff()
+        {
+            return (x - y);
+        }
+
+        public void product()
+        {
+            Console.WriteLine("Product of 2 numbers="+(x*y));
+        }
+
+        //public void check()
+        //{
+        //    if (x > y)
+        //        Console.WriteLine("greatest no is x=" + x);
+        //    else
+        //        Console.WriteLine("greatest no is y=" + y);
+        //}
+
+        //public int check()
+        //{
+        //    if (x > y)
+        //        return x;
+        //    else
+        //        return y;
+        //}
+
+        public int check() // ?: ternary operator
+        {
+            return (x > y ? x : y);
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Data obj1 = new Data();
+            obj1.getnumbers();
+            Console.WriteLine("sum of 2 numbers="+obj1.add());
+            Console.WriteLine("diff of 2 numbers=" + obj1.diff());
+            obj1.product();
+            Console.WriteLine("greatest of 2 numbers=" + obj1.check());
+        }
+    }
+}
+
+
+WAP to find the area of triangle.
+
+namespace ConsoleApp3
+{   
+    class Triangle
+    {
+        double  bs,ht;
+
+        //public void getdimension()
+        //{
+        //    Console.WriteLine("Enter dimension");
+        //    bs = double.Parse(Console.ReadLine());
+        //    ht = double.Parse(Console.ReadLine());
+        //}
+
+        public void getdimension(double bs,double ht)
+        {
+            this.bs = bs;
+            this.ht = ht;
+        }
+
+        public double area()
+        {
+            return (0.5 * this.bs * this.ht);
+        }
+      
+        public double check() // ?: ternary operator
+        {
+            return (this.bs>this.ht? this.bs:this.ht);
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Triangle obj1 = new Triangle();
+            obj1.getdimension(10,45);
+            Console.WriteLine("Area of triangle="+obj1.area());
+            Console.WriteLine("greatest of 2 sides=" + obj1.check());
+        }
+    }
+}
+
+Constructor and Destructor:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

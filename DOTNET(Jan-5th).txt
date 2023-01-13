@@ -1,0 +1,293 @@
+namespace ConsoleApp3
+{
+    class Demo
+    {
+        public void validateage(int age) //18-70
+        {
+            if (age > 18 && age <= 70)
+                Console.WriteLine("Valid User");
+            else
+                throw new ArgumentOutOfRangeException();
+        }
+
+        public void validateuname(string uname) 
+        {
+            if (uname.Length<=2 || uname ==" " || uname ==null)
+                throw new ArgumentException();
+            else
+                Console.WriteLine("Valid UserName");
+
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int age = 50;
+            string uname = "sa";
+            try
+            {
+                Demo obj = new Demo();
+                obj.validateage(age);
+                obj.validateuname(uname);
+            }
+            catch(ArgumentOutOfRangeException ex)
+            {
+                //Console.WriteLine("Invalid age input age[18-70]");
+                Console.WriteLine(ex.Message);
+            }
+            catch (ArgumentException ex)
+            {
+                Console.WriteLine("Invalid username");
+               // Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                Console.WriteLine("end of program");
+            }
+        }
+    }
+}
+
+Polymorphism:
+
+poly: "multiple"
+morphism: "functionality/behaviour"
+
+1. compile type/static/function overloading/early binding
+
+identical method having multiple forms.
+
+2. runtime/dynamic/function overriding/late binding
+
+base class (virtual method)--->(override method)derived class
+
+
+namespace ConsoleApp3
+{
+    class Demo
+    {
+        public void getproduct()
+        {
+            Console.WriteLine("All product details");
+        }
+        public void getproduct(string brand)
+        {
+            Console.WriteLine("product details"+brand);
+        }
+        public void getproduct(string brand,double price)
+        {
+            Console.WriteLine("product details"+brand+","+price);
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Demo obj = new Demo();
+            obj.getproduct();
+            obj.getproduct("Levis");
+            obj.getproduct("Levis",2500);
+        }
+    }
+}
+
+
+namespace ConsoleApp3
+{
+    class Demo1
+    {
+        public virtual void print()
+        {
+            Console.WriteLine("base class method");
+        }
+    }
+    class Demo2 : Demo1
+    {
+        public override void print()
+        {
+            Console.WriteLine("derived class method");
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Demo2 obj = new Demo2();
+            obj.print();
+        }
+    }
+}
+
+abstract class-> abstract methods are overriden
+runtime-time poly-> virtual methods are overriden
+
+
+Properties and Indexer:
+
+-->Properties provides access to private data-member.
+-->Properties have get and set accessors
+-->type of property is same as data-member.
+-->name of property id precceded by "_".
+
+
+namespace ConsoleApp3
+{
+    class Book
+    {
+        int bid;
+        string bname;
+        string bauthor;
+
+        public int _bid
+        {
+            get { return bid; }
+            set { bid = value; }
+        }
+
+        public string _bname
+        {
+            get { return bname; }
+            set { bname = value; }
+        }
+
+        public string _bauthor
+        {
+            get { return bauthor; }
+            set { bauthor = value; }
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Book obj = new Book();
+            obj._bid = 1; //set
+            obj._bname = "C# PRO"; //set
+            obj._bauthor = "john"; //set
+
+            Console.WriteLine(obj._bid + "," + obj._bname + "," + obj._bauthor); //get
+        }
+    }
+}
+
+
+namespace ConsoleApp3
+{
+    class Book
+    {
+        public int bid { get; set; }
+        public string bname { get; set; }   
+        public string bauthor { get; set; }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Book obj = new Book();
+            obj.bid = 1; //set
+            obj.bname = "C# PRO"; //set
+            obj.bauthor = "john"; //set
+
+            Console.WriteLine(obj.bid + "," + obj.bname + "," + obj.bauthor); //get
+        }
+    }
+}
+
+Indexer:
+-->indexer is used when data-member is array.
+-->indexer does not have name,it has only return type.
+-->it provides flexibility to work array operations.
+
+namespace ConsoleApp3
+{
+    class Book
+    {
+        int[] bid;
+
+        public Book()
+        {
+            bid = new int[] {11,22,33,44,55 };
+        }
+
+        public int this[int index]
+        {
+            get { return bid[index]; }
+            set { bid[index] = value; }
+        }
+
+        public void print()
+        {
+            for (int i = 0; i < bid.Length;i++)
+            {
+                Console.WriteLine(bid[i]);
+            }
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Book obj = new Book();
+            obj[0] = 100;
+            obj[2] = 500;
+            obj[4] = 900;
+
+            obj.print();
+        }
+    }
+}
+
+File Handling:
+
+using system.IO;
+I-->input ,create,write,append.
+O -->ouput,open,read.
+
+File
+FileInfo
+Filestream
+streamwriter
+streamreader
+
+ static void Main(string[] args)
+        {
+            //verbatim
+            // File.WriteAllText(@"C:\Users\Dhanraj\source\repos\ConsoleApp3\ConsoleApp3\Program.cs", "this is my first file using io namespace");
+            File.WriteAllText("D:\\Demo1.txt", "this is my first file using io namespace");
+        }
+{
+ string str=File.ReadAllText("D:\\Demo1.txt");
+ Console.WriteLine(str);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

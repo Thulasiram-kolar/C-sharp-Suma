@@ -1,0 +1,274 @@
+sealed class
+-->sealed cannot be inherited,can be instantiated(objects).
+
+namespace ConsoleApp3
+{   
+    sealed class Demo //final java
+    {
+        public void display1(int a,int b)
+        {
+            Console.WriteLine("Result1=" + Math.Pow(a, b));
+        }
+
+        public void display2(int a)
+        {
+            Console.WriteLine("Result2=" +Math.Pow(a,4));
+        }
+    }
+    //class Example : Demo
+    //{
+
+    //}
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Demo obj = new Demo();
+            obj.display1(10, 3);
+            obj.display2(3);
+        }
+    }
+}
+
+
+Partial class:
+Partial class is used to divide the project task into multiple modules.
+and then integrated  and build to create single application.
+namespace ConsoleApp3
+{
+    partial class Demo 
+    {
+        int x, y;
+    }
+    partial class Demo
+    {
+        public void getxy()
+        {
+            Console.WriteLine("input 2 numbers");
+            x = int.Parse(Console.ReadLine());
+            y = int.Parse(Console.ReadLine());
+        }
+    }
+    partial class Demo
+    {
+        public int add()
+        {
+            return (x + y);
+        }
+    }
+    partial class Demo
+    { 
+        public int sub()
+        {
+            return (x - y);
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Demo obj = new Demo();
+            obj.getxy();
+            Console.WriteLine("sum=" + obj.add());
+            Console.WriteLine("diff=" + obj.sub());
+        }
+    }
+}
+
+static class:
+static class is neither inherited nor instantiated.
+
+namespace ConsoleApp3
+{
+    static class Demo
+    {
+        static int x;
+
+        static Demo()
+        {
+            Demo.x = 100;
+        }
+        public static void show()
+        {
+            Console.WriteLine(x);
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Demo.show();
+        }
+    }
+}
+
+non-generic collections:
+are not "type safe"
+using System.Collections;
+Arraylist
+hashtable
+sortedlist
+stack
+queue
+
+
+generic collections:
+are "type-safe"
+using System.Collections.Generic;
+List<bool>
+Dictionary<int,string>
+sortedDictionary<>
+stack<string>
+queue<double>
+
+Arraylist:
+-->It is dynamic array, it can grow or shrink based on add/remove methods.
+-->It allows to store duplicate values.
+
+  static void Main(string[] args)
+        {
+            string[] array1 = new string[] {"mysql","php","ajax" };//static array
+
+            ArrayList list1 = new ArrayList(); //dynamic array
+            list1.Add("java");
+            list1.Add(".net");
+            list1.Add("sql");
+            list1.Add("true");
+            list1.Add("100");
+
+            list1.AddRange(array1);
+
+            list1.AddRange(new string[] { "java", "html" });
+
+            //list1.Remove("php");
+            //list1.RemoveAt(0);
+            // list1.RemoveRange(0, 3);
+
+            list1.Sort();
+
+            list1.Reverse();
+
+            foreach (string i in list1)
+            {
+                Console.WriteLine(i);
+            }
+        }
+    }
+
+Hashtable:
+-->stores data in key-value pair format.
+-->keys of hashtable cannot be duplicated.
+-->keys are stored randomly in hashtable.
+
+  class Program
+    {
+        static void Main(string[] args)
+        {
+            Hashtable ht = new Hashtable();
+            ht.Add("9", "HTML & CSS");
+            ht.Add("10", "JAVASCRIPT AND JQUERY");
+            ht.Add("11", "DOTNET AND SQL");
+            ht.Add("12", "PHP AND MYSQL");
+            ht.Add("13", "JAVA AND ORACLE");
+
+            ICollection c1 = ht.Keys;
+            ICollection c2 = ht.Values;
+
+            foreach (string i in c1)
+            {
+                Console.WriteLine(i);
+            }
+
+            foreach (string i in c2)
+            {
+                Console.WriteLine(i);
+            }
+
+            IDictionaryEnumerator etr = ht.GetEnumerator();
+
+            while(etr.MoveNext())
+            {
+                Console.WriteLine(etr.Key + "--->" + etr.Value);
+            }
+        }
+    }
+}
+
+
+SortedList:
+-->stores data in key-value pair format.
+-->keys of SortedList cannot be duplicated.
+-->keys are sorted and then stored.
+
+class Program
+    {
+        static void Main(string[] args)
+        {
+            SortedList ht = new SortedList();
+            ht.Add(9, "HTML & CSS");
+            ht.Add(13, "JAVASCRIPT AND JQUERY");
+            ht.Add(11, "DOTNET AND SQL");
+            ht.Add(12, "PHP AND MYSQL");
+            ht.Add(10, "JAVA AND ORACLE");
+
+            ICollection c1 = ht.Keys;
+            ICollection c2 = ht.Values;
+
+            foreach (int i in c1)
+            {
+                Console.WriteLine(i);
+            }
+
+            foreach (string i in c2)
+            {
+                Console.WriteLine(i);
+            }
+
+            IDictionaryEnumerator etr = ht.GetEnumerator();
+
+            while(etr.MoveNext())
+            {
+                Console.WriteLine(etr.Key + "--->" + etr.Value);
+            }
+        }
+    }
+}
+
+ static void Main(string[] args)
+        {
+            Stack st = new Stack(); //LIFO
+            st.Push("JQUERY");
+            st.Push("AJAX");
+            st.Push("XML");
+            st.Push("XAML");
+
+            st.Pop();
+
+            foreach (string i in st)
+            {
+                Console.WriteLine(i);
+            }
+        }
+
+static void Main(string[] args)
+        {
+            Queue qi = new Queue(); //FIFO
+
+            qi.Enqueue(23);
+            qi.Enqueue(34);
+            qi.Enqueue(65);
+            qi.Enqueue(75);
+
+            qi.Dequeue();
+
+            foreach (int i in qi)
+            {
+                Console.WriteLine(i);
+            }
+        }
+
+
+
+
+

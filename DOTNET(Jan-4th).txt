@@ -1,0 +1,409 @@
+Generic collections:
+are "type-safe"
+using System.Collections.Generic;
+List<bool>
+Dictionary<int,string>
+sortedDictionary<>
+stack<string>
+queue<double>
+
+Arraylist:
+-->It is dynamic array, it can grow or shrink based on add/remove methods.
+-->It allows to store duplicate values.
+
+  static void Main(string[] args)
+        {
+            string[] array1 = new string[] {"mysql","php","ajax" };//static array
+
+            ArrayList list1 = new ArrayList(); //dynamic array
+            list1.Add("java");
+            list1.Add(".net");
+            list1.Add("sql");
+            list1.Add("true");
+            list1.Add("100");
+
+            list1.AddRange(array1);
+
+            list1.AddRange(new string[] { "java", "html" });
+
+            //list1.Remove("php");
+            //list1.RemoveAt(0);
+            // list1.RemoveRange(0, 3);
+
+            list1.Sort();
+
+            list1.Reverse();
+
+            foreach (string i in list1)
+            {
+                Console.WriteLine(i);
+            }
+        }
+    }
+
+Hashtable:
+-->stores data in key-value pair format.
+-->keys of hashtable cannot be duplicated.
+-->keys are stored randomly in hashtable.
+
+  class Program
+    {
+        static void Main(string[] args)
+        {
+            Hashtable ht = new Hashtable();
+            ht.Add("9", "HTML & CSS");
+            ht.Add("10", "JAVASCRIPT AND JQUERY");
+            ht.Add("11", "DOTNET AND SQL");
+            ht.Add("12", "PHP AND MYSQL");
+            ht.Add("13", "JAVA AND ORACLE");
+
+            ICollection c1 = ht.Keys;
+            ICollection c2 = ht.Values;
+
+            foreach (string i in c1)
+            {
+                Console.WriteLine(i);
+            }
+
+            foreach (string i in c2)
+            {
+                Console.WriteLine(i);
+            }
+
+            IDictionaryEnumerator etr = ht.GetEnumerator();
+
+            while(etr.MoveNext())
+            {
+                Console.WriteLine(etr.Key + "--->" + etr.Value);
+            }
+        }
+    }
+}
+
+
+SortedList:
+-->stores data in key-value pair format.
+-->keys of SortedList cannot be duplicated.
+-->keys are sorted and then stored.
+
+class Program
+    {
+        static void Main(string[] args)
+        {
+            SortedList ht = new SortedList();
+            ht.Add(9, "HTML & CSS");
+            ht.Add(13, "JAVASCRIPT AND JQUERY");
+            ht.Add(11, "DOTNET AND SQL");
+            ht.Add(12, "PHP AND MYSQL");
+            ht.Add(10, "JAVA AND ORACLE");
+
+            ICollection c1 = ht.Keys;
+            ICollection c2 = ht.Values;
+
+            foreach (int i in c1)
+            {
+                Console.WriteLine(i);
+            }
+
+            foreach (string i in c2)
+            {
+                Console.WriteLine(i);
+            }
+
+            IDictionaryEnumerator etr = ht.GetEnumerator();
+
+            while(etr.MoveNext())
+            {
+                Console.WriteLine(etr.Key + "--->" + etr.Value);
+            }
+        }
+    }
+}
+
+ static void Main(string[] args)
+        {
+            Stack st = new Stack(); //LIFO
+            Stack<string> st = new Stack<string>(); //LIFO generic
+            st.Push("JQUERY");
+            st.Push("AJAX");
+            st.Push("XML");
+            st.Push("XAML");
+
+            st.Pop();
+
+            foreach (string i in st)
+            {
+                Console.WriteLine(i);
+            }
+        }
+
+static void Main(string[] args)
+        {
+            Queue qi = new Queue(); //FIFO
+
+            qi.Enqueue(23);
+            qi.Enqueue(34);
+            qi.Enqueue(65);
+            qi.Enqueue(75);
+
+            qi.Dequeue();
+
+            foreach (int i in qi)
+            {
+                Console.WriteLine(i);
+            }
+        }
+
+
+List:
+
+static void Main(string[] args)
+        {
+            List<int> list1 = new List<int>();
+            list1.Add(10);
+            list1.Add(20);
+            list1.Add(40);
+            list1.Add(30);
+
+            list1.AddRange(new int[] { 100, 200, 300, 40 });
+
+            foreach(int i in list1)
+            {
+                Console.WriteLine(i);
+            }
+        }
+
+namespace ConsoleApp3
+{
+    class student
+    {
+        public int regno;
+        public string sname;
+        public double permarks;
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            List<student> list1 = new List<student>();
+            list1.Add(new student() { regno=1,sname="john",permarks=89.77});
+            list1.Add(new student() { regno = 2, sname = "johny", permarks = 80.77 });
+            list1.Add(new student() { regno = 3, sname = "mary", permarks = 83.77 });
+            list1.Add(new student() { regno = 4, sname = "sam", permarks = 82.77 });
+
+            foreach(student i in list1)
+            {
+                Console.WriteLine(i.regno+","+i.sname+","+i.permarks);
+            }
+        }
+    }
+}
+
+
+class Program
+    {
+        static void Main(string[] args)
+        {
+            Dictionary<int, string> di = new Dictionary<int, string>();
+            di.Add(1, "AJAX");
+            di.Add(2, "JQUERY");
+            di.Add(3, "JAVASCRIPT");
+            di.Add(4, "XAML");
+
+            ICollection<int> c1 = di.Keys;
+            ICollection<string> c2 = di.Values;
+
+            foreach(int i in c1)
+            {
+                Console.WriteLine(i);
+            }
+
+            foreach (string i in c2)
+            {
+                Console.WriteLine(i);
+            }
+
+            foreach(KeyValuePair<int,string> kvp in di)
+            {
+                Console.WriteLine(kvp.Key+"-->"+kvp.Value);
+            }
+        }
+    }
+}
+
+ static void Main(string[] args)
+        {
+            SortedDictionary<int, string> di = new SortedDictionary<int, string>();
+            di.Add(2, "AJAX");
+            di.Add(4, "JQUERY");
+            di.Add(3, "JAVASCRIPT");
+            di.Add(1, "XAML");
+
+            ICollection<int> c1 = di.Keys;
+            ICollection<string> c2 = di.Values;
+
+            foreach(int i in c1)
+            {
+                Console.WriteLine(i);
+            }
+
+            foreach (string i in c2)
+            {
+                Console.WriteLine(i);
+            }
+
+            foreach(KeyValuePair<int,string> kvp in di)
+            {
+                Console.WriteLine(kvp.Key+"-->"+kvp.Value);
+            }
+        }
+    }
+
+static void Main(string[] args)
+        {
+            Queue<int> qi = new Queue<int>(); //FIFO
+
+            qi.Enqueue(23);
+            qi.Enqueue(67);
+            qi.Enqueue(65);
+            qi.Enqueue(75);
+
+            qi.Dequeue();
+
+            foreach (int i in qi)
+            {
+                Console.WriteLine(i);
+            }
+
+        }
+
+
+namespace ConsoleApp3
+{
+    class student<T1,T2,T3>
+    {
+        public T1 regno;
+        public T2 sname;
+        public T3 permarks;
+
+        public student(T1 regno,T2 sname,T3 permarks)
+        {
+            this.regno = regno;
+            this.sname = sname;
+            this.permarks = permarks;
+        }
+
+        public void display()
+        {
+            Console.WriteLine(regno + "," + sname + "," + permarks);
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            student<int, string, double> sobj1 = new student<int, string, double>(1, "anu", 56.78);
+            sobj1.display();
+
+            student<string, string, double> sobj2 = new student<string, string, double>("EC001", "ana", 78.78);
+            sobj2.display();
+
+            student<string, string, string> sobj3 = new student<string, string, string>("EC002", "anjan","78.78%");
+            sobj3.display();
+        }
+    }
+}
+
+ploymorphism.
+Properties and indexer.
+
+Exception handling:
+
+error 2 types:
+1.compile-time -->syntax,wrong logic.
+2.runtime --> runtime errors are handled by using exception handling.
+ 
+try,catch,finally,throw
+
+System.DivideByZeroException
+
+
+ static void Main(string[] args)
+        {
+            int a, b;
+            a = 100;
+            b = 0;
+            try
+            {
+                double result = a / b;
+                Console.WriteLine("Result=" + result);
+            }
+            catch(DivideByZeroException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            Console.WriteLine("execution continued");
+        }
+
+ static void Main(string[] args)
+        {
+            int[] a = new int[] {10,20,30,40,50 };
+           
+            try
+            {
+                for(int i=0;i<5;i++)
+                {
+                    Console.WriteLine(a[i]);
+                }
+            }
+            catch(DivideByZeroException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch(IndexOutOfRangeException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                Console.WriteLine("end of program");
+            }
+        }
+    }
+
+static void Main(string[] args)
+        {
+            int[] a = new int[] {10,20,30,40,50 };
+            int[] b = new int[3];
+
+            try
+            {
+                a.CopyTo(b, 0);
+                foreach(int i in b)
+                {
+                    Console.WriteLine(i);
+                }
+            }
+            catch(DivideByZeroException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch(IndexOutOfRangeException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch (ArgumentException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                Console.WriteLine("end of program");
+            }
+        }
+    }
+
+
+
+

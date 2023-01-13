@@ -1,0 +1,176 @@
+LINQ:
+-->Language integrated query
+-->LINQ introduced from .NET 3.5
+-->using System.Linq;
+-->LINQ can written using lamda expression
+2 types of LINQ
+1.statement lamda
+2.expression lamda
+
+Entity framework(EF)
+It is automated approach of all database activities.
+
+select * from table1
+
+var query = from i in a select i;
+
+ static void Main(string[] args)
+        {
+            int[] a = new int[] {10,20,30,40,50,60,70,80,90,100 };
+
+            var query = from i in a select i;
+
+            foreach(int i in query)
+            {
+                Console.WriteLine(i);
+            }
+        }
+
+
+ var query = from i in a where i>60 select i;
+ var query = from i in a where i>20 && i<90 select i;
+
+  // var query = from i in a orderby i select i;
+           // var query = from i in a orderby i ascending select i;
+            var query = from i in a orderby i descending select i;
+
+static void Main(string[] args)
+        {
+            int[] a = new int[] {90,10,20,40,30,50,80,70,60,100 };
+
+            //var query = from i in a select i;
+            // var query = a.Select(i => i); //expression lamda
+
+            //var query = a.OrderBy(i => i).Select(i=>i);
+           // var query = a.OrderBy(i => i);
+            var query = a.OrderByDescending(i => i);
+
+            foreach (int i in query)
+            {
+                Console.WriteLine(i);
+            }
+        }
+
+  var query = (from i in a select i).Reverse<int>();
+
+           
+
+ class Program
+    {
+        //aggregate functions
+        //sum,max,min,avg,count,distinct
+        static void Main(string[] args)
+        {
+            int[] a = new int[] {90,10,20,40,30,50,80,70,60,100 };
+
+            int sum = (from i in a select i).Sum();
+           
+            Console.WriteLine("sum of all array elements="+sum);
+        }
+    }
+
+int max = (from i in a select i).Max();
+
+ int min = (from i in a select i).Min();
+
+   double min = (from i in a select i).Average();
+
+
+
+ static void Main(string[] args)
+        {
+            int[] a = new int[] {90,10,20,40,30,50,80,70,60,100 };
+
+            int nos = (from i in a select i).Count();
+           
+            Console.WriteLine("No of array elements="+nos);
+        }
+
+
+//sum,max,min,avg,count -->returns single ton value
+        //distinct -->eliminates duplicates
+        static void Main(string[] args)
+        {
+            int[] a = new int[] {90,90,10,20,40,30,50,80,70,70,60,100,100 };
+
+            var query = (from i in a select i).Distinct();
+           
+            foreach(int i in query)
+            {
+                Console.WriteLine(i);
+            }
+        }
+
+//Set functions
+        //Union,intersect,Except
+        static void Main(string[] args)
+        {
+            int[] a = new int[] {90,90,10,20,40,30,50,80,70,70,60,100,100 };
+            int[] b = new int[] {10,20,30,200,400,600 };
+
+            var query = (from i in a select i).Union(from i in b select i);
+           
+            foreach(int i in query)
+            {
+                Console.WriteLine(i);
+            }
+        }
+
+ var query = (from i in a select i).Intersect(from i in b select i);
+
+ var query = (from i in a select i).Except(from i in b select i); //a-b
+ 
+ var query = (from i in b select i).Except(from i in a select i); //b-a
+
+static void Main(string[] args)
+        {
+            string[] Sarray = {"HTML","CSS","JAVASCRIPT","JQUERY","AJAX","XML" };
+
+            var query = from i in Sarray where i.Length>4 select i;
+
+            foreach (string i in query)
+            {
+                Console.WriteLine(i);
+            }
+        }
+
+var query = from i in Sarray where i.StartsWith("J") select i;
+
+var query = from i in Sarray where i.EndsWith("L") select i;
+
+static void Main(string[] args)
+        {
+            string[] Sarray = {"HTML","CSS","DHTML","XAML","JAVASCRIPT","JQUERY","AJAX","XML" };
+
+            var query = from i in Sarray where i.Contains("ML") select i;
+
+            foreach (string i in query)
+            {
+                Console.WriteLine(i);
+            }
+        }
+
+ string[] Sarray = {"HTML","CSS","DHTML","XAML","JAVASCRIPT","JQUERY","AJAX","XML" };
+
+            //var query = from i in Sarray where i.Contains("ML") select i;
+
+            // var query = Sarray.Where(i => i.StartsWith("J")).Where(i=>i.Length>4).Select(i=>i);
+
+            var query = from i in Sarray where i.Length > 4 && i.StartsWith("J") select i;
+
+            foreach (string i in query)
+            {
+                Console.WriteLine(i);
+            }
+
+
+
+
+
+
+
+
+
+
+
+

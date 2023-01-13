@@ -1,0 +1,204 @@
+Iterational control statement:
+
+while
+do-while
+for
+
+1.Initialise
+2.test condition
+3.inc/dec
+
+
+ class Program
+    {
+        static void Main(string[] args)
+        {
+            int i=1;
+
+            while(i<=10)
+            {
+                Console.WriteLine(i);
+                //i = i + 1;
+                //i++;
+                i += 1;
+            }
+        }
+    }
+
+
+ static void Main(string[] args)
+        {
+            int i=10;
+
+            while(i>=1) 
+            {
+                Console.WriteLine(i);
+                //i = i + 1;
+                //i++;
+                i -= 1;
+            }
+        }
+
+ static void Main(string[] args)
+        {
+            int i=10;
+
+            while(i<=30) 
+            {
+                Console.WriteLine(i);
+                i = i + 2;
+                //i++;
+            }
+        }
+
+static void Main(string[] args)
+        {
+            int i=11;
+
+            while(i<=30) 
+            {
+                if(i%2!=0)
+                {
+                    Console.WriteLine(i);
+                }
+                i = i + 1;
+            }
+        }
+
+class Program
+    {
+        static void Main(string[] args)
+        {
+            int i=11;
+            do
+            {
+                if(i%2!=0)
+                {
+                    Console.WriteLine(i);
+                }
+                i = i + 1;
+            }
+            while (i >= 30); //11>30
+        }
+    }
+
+for(int i=1;i<35;i++)
+{
+
+}
+
+static void Main(string[] args)
+        {
+            for(int i=1;i<=10;i++)
+            {
+                Console.WriteLine(i);
+            }
+        }
+
+class Program
+    {
+        static void Main(string[] args)
+        {
+            int n;
+            Console.WriteLine("Enter a number");
+            n = int.Parse(Console.ReadLine());
+
+            for (int i = 1; i <= 10; i++)
+            {
+                //int result = n * i;
+                Console.WriteLine("{0}*{1}={2}", n, i, (n*i));
+            }
+        }
+    }
+
+ static void Main(string[] args)
+        {
+            int n,total=0;
+            Console.WriteLine("Enter a number");
+            n = int.Parse(Console.ReadLine());
+
+            for (int i = 1; i <= n; i++)
+            {
+                total = total + i;
+            }
+            Console.WriteLine("Sum of all numbers="+total);
+        }
+
+ class Program
+    {
+        static void Main(string[] args)
+        {
+            int n,total1=0,total2=0;
+            Console.WriteLine("Enter a number");
+            n = int.Parse(Console.ReadLine());
+
+            for (int i = 1; i <= n; i++)
+            {
+                if(i%2==0)
+                total1 = total1 + i;
+                else
+                total2 = total2 + i;
+            }
+            Console.WriteLine("Sum of all even numbers="+total1);
+            Console.WriteLine("Sum of all odd numbers=" + total2);
+        }
+    }
+
+1.WAP using switch-case[+,-,*,/] to add,substract,multiply and divide two numbers.
+
+switch(choice(char))
+{
+case '+'
+case '-'
+case '*'
+case '/'
+}
+
+2.WAP using switch-case to find area of rectangle and triangle.
+switch(choice(char))
+{
+case 'R'
+case 'T'
+}
+
+3.WAP to display all numbers between 25 to 1
+
+4.WAP to display all numbers between 5 to 30
+
+5.WAP to display only even numbers 30 to 60
+
+6. 
+Array:
+for-each
+one-dimensional
+two
+object array
+jagged array
+object jagged array
+
+OOPS:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

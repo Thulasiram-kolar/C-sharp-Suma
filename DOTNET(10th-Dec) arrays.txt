@@ -1,0 +1,171 @@
+Arrays:
+Collection of elements of same-kind.
+group of elements of same type(homogenous elements).
+
+int bookid[10];
+string bookname[25];
+
+
+syntax:
+
+int []bookid=new int[5];
+
+ int[] bookdata = new int[5] {11,12,13,14,15 };
+
+bookdata[0]=11
+bookdata[1]=12
+bookdata[2]=13
+bookdata[3]=14
+bookdata[4]=15
+
+arraysize-->lndex
+5--> 0 to 4
+
+50->0 to 49
+
+100->0 to 99
+
+
+class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] bookdata = new int[5] {11,12,13,14,15};
+
+            int[] price = new int[10];
+
+            string[] booknames = new string[] {"HTML","CSS","JAVASCRIPT","C#" };
+
+            for(int i=0;i<bookdata.Length;i++)
+            {
+               // Console.WriteLine(bookdata[i]);
+                Console.WriteLine("bookdata["+i+"]="+ bookdata[i]);
+            }
+        }
+    }
+
+ static void Main(string[] args)
+        {
+            int[] bookdata = new int[5] {11,12,13,14,15};
+
+            int[] price = new int[10];
+
+            string[] booknames = new string[] {"HTML","CSS","JAVASCRIPT","C#" };
+
+            for(int i=0;i<bookdata.Length;i+=2)
+            {
+                Console.WriteLine(bookdata[i]);
+                Console.WriteLine("bookdata["+i+"]="+ bookdata[i]);
+            }
+
+            foreach(int x in bookdata)
+            {
+                Console.WriteLine(x);
+            }
+
+        }
+
+ class Program
+    {
+        static void Main(string[] args)
+        {
+            string[] booknames = new string[] {"HTML","CSS","JAVASCRIPT","C#" };
+
+            for(int i=0;i< booknames.Length;i++)
+            {
+               Console.WriteLine(booknames[i]);
+            }
+
+            foreach(string x in booknames)
+            {
+                Console.WriteLine(x);
+            }
+        }
+    }
+
+static void Main(string[] args)
+        {
+            string[] booknames = new string[5];
+
+            Console.WriteLine("enter booknames");
+            for (int i=0;i< booknames.Length;i++)
+            {
+                booknames[i] = Console.ReadLine();
+            }
+
+            foreach(string x in booknames)
+            {
+                Console.WriteLine(x);
+            }
+        }
+
+ static void Main(string[] args)
+        {
+            int[] array1 = new int[7];
+
+            Console.WriteLine("input array elements");
+            for (int i=0;i< array1.Length;i++)
+            {
+                array1[i] =int.Parse(Console.ReadLine());
+            }
+
+            Console.WriteLine("-----array elements are-----");
+            foreach (int x in array1)
+            {
+                Console.WriteLine(x);
+            }
+        }
+
+class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] array1 = new int[7];
+            int[] array2 = new int[7];
+            int[] array3 = new int[7];
+
+
+            Console.WriteLine("input array1 elements");
+            for (int i=0;i< array1.Length;i++)
+            {
+                array1[i] =int.Parse(Console.ReadLine());
+            }
+
+            Console.WriteLine("input array2 elements");
+            for (int i = 0; i < array2.Length; i++)
+            {
+                array2[i] = int.Parse(Console.ReadLine());
+            }
+
+            Console.WriteLine("sum of array1 and array2 elements");
+            for (int i = 0; i < 7; i++)
+            {
+                array3[i] = array1[i] + array2[i];
+                Console.WriteLine(array3[i]);
+            }
+        }
+    }
+}
+
+
+static void Main(string[] args)
+        {
+            int[] array1 = new int[7]; //1,2,3,4,5,6,7=sum
+            int result = 0;
+
+            Console.WriteLine("input array1 elements");
+            for (int i=0;i< array1.Length;i++)
+            {
+                array1[i] =int.Parse(Console.ReadLine());
+            }
+
+            for (int i = 0; i < 7; i++)
+            {
+                result = array1[i] +result;
+            }
+
+            Console.WriteLine("Sum of all the array elements="+result);
+        }
+
+
+

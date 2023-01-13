@@ -1,0 +1,239 @@
+Anonymus types
+
+Anonymus methods
+
+Extension methods
+
+TPL(task parallel library)
+
+ static void Main(string[] args)
+        {
+            var bookdet = new { 
+                                bcode=236,
+                                bname="ASP.NET PRO",
+                                bprice=4500.78
+                               };
+
+            Console.WriteLine(bookdet.bcode+","+bookdet.bname+","+bookdet.bprice);
+        }
+
+    class Demo
+    {
+        public void display(dynamic data)
+        {
+            Console.WriteLine(data);
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var empdet = new { 
+                                ecode=236,
+                                ename="RAM",
+                                edesig="s/w engg",
+                                empper_det=new { 
+                                                  emailid="ram@gmail.com",
+                                                  eaddr="jayanager,bangalore",
+                                                  eedu="B.E"
+                                               }
+                               };
+
+            //Console.WriteLine(empdet.ecode+","+empdet.ename+","+empdet.edesig);
+            //Console.WriteLine(empdet.empper_det.emailid + "," + empdet.empper_det.eaddr + "," + empdet.empper_det.eedu);
+            Demo obj = new Demo();
+            obj.display(empdet);
+        }
+    }
+}
+
+Anonymus methods:
+
+
+"Anonymus"-->no name
+method without name.
+delegate is used to implement anonymus method.
+
+namespace ConsoleApp3
+{
+    delegate void Mydelegate();  
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Mydelegate del = delegate{
+                                       Console.WriteLine("this is anonymus method");
+                                     };
+            del();
+        }
+    }
+}
+
+namespace ConsoleApp3
+{
+    delegate void Mydelegate(int n);  
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Mydelegate del = delegate(int n){
+                                       for(int i=1;i<=n;i++)
+                                        {
+                                            Console.WriteLine("this is anonymus method"+i);
+                                        }
+                                          };
+            del(10);
+        }
+    }
+}
+
+namespace ConsoleApp3
+{
+    delegate int Mydelegate(int n);  
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Mydelegate del = delegate(int n){
+                int sum = 0;
+                                       for(int i=1;i<=n;i++)
+                                        {
+                                        sum = sum + i;
+                                        }
+                                     return sum;
+                                          };
+           
+            Console.WriteLine("Sum of all nos" + del(10));
+        }
+    }
+}
+
+Extension methods:
+
+namespace ConsoleApp3
+{
+    static class example
+    {
+        public static void method3(this Demo obj)
+        {
+            Console.WriteLine("new method1");
+        }
+        public static void method4(this Demo obj)
+        {
+            Console.WriteLine("new method2");
+        }
+    }
+    class Demo
+    {
+        public void method1()
+        {
+            Console.WriteLine("first method");
+        }
+        public void method2()
+        {
+            Console.WriteLine("second method");
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Demo obj = new Demo();
+            obj.method1();
+            obj.method2();
+            obj.method3();
+            obj.method4();
+        }
+    }
+}
+
+Task parallel library:
+
+Asynchronous programming.
+
+using System.Threading.Tasks;
+
+namespace ConsoleApp3
+{
+    class Demo
+    {
+        public void print()
+        {
+            for(int i=0;i<5;i++)
+            {
+                Console.WriteLine("method to print");
+            }
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Demo d1 = new Demo();
+            Console.WriteLine("Start");
+
+            Task obj = new Task(d1.print);
+            obj.Start();
+
+            Console.WriteLine("End");
+        }
+    }
+}
+
+Internal:
+data-members with internal modifier can be accessed only within the application
+
+Protected-Internal:
+data-members with Protected-internal modifier can be accessed in application and outside application.
+
+namespace ConsoleApp3
+{
+    //default access modifier for class is internal
+    public class Demo
+    {
+      protected internal string deptname = "HR DEPT";
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Demo obj = new Demo();
+            Console.WriteLine(obj.deptname);
+        }
+    }
+}
+
+
+using System;
+using ConsoleApp3;
+
+namespace ConsoleApp1
+{
+    class Program:Demo
+    {
+        static void Main(string[] args)
+        {
+            Program obj = new Program();
+            Console.WriteLine(obj.deptname);
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

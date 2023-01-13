@@ -1,0 +1,398 @@
+File Handling:
+
+using system.IO;
+I-->input ,create,write,append.
+O -->ouput,open,read.
+
+File
+FileInfo
+Filestream
+streamwriter
+streamreader
+
+ static void Main(string[] args)
+        {
+            //verbatim
+            // File.WriteAllText(@"C:\Users\Dhanraj\source\repos\ConsoleApp3\ConsoleApp3\Program.cs", "this is my first file using io namespace");
+            File.WriteAllText("D:\\Demo1.txt", "this is my first file using io namespace");
+        }
+{
+ string str=File.ReadAllText("D:\\Demo1.txt");
+ Console.WriteLine(str);
+}
+
+FileInfo:
+
+ static void Main(string[] args)
+        {
+            FileInfo fi = new FileInfo("D:\\file10.txt");
+            StreamWriter sw = fi.CreateText();
+            sw.WriteLine("this is files with fileinfo class");
+            sw.Close();
+        }
+
+
+static void Main(string[] args)
+        {
+            FileInfo fi = new FileInfo("D:\\file10.txt");
+            StreamReader sr = fi.OpenText();
+            string str = sr.ReadLine();
+            Console.WriteLine(str);
+            sr.Close();
+        }
+
+static void Main(string[] args)
+        {
+            FileInfo fi = new FileInfo("D:\\file10.txt");
+            StreamWriter sw = fi.AppendText();
+            sw.WriteLine("adding more content to file at the end");
+            sw.Close();
+        }
+
+static void Main(string[] args)
+        {
+            string file = "D:\\programfile1.txt";
+            if (File.Exists(file))
+            {
+                FileInfo fi = new FileInfo(file);
+                StreamReader sw = fi.OpenText();
+                string str = sw.ReadToEnd();
+                Console.WriteLine(str);
+                sw.Close();
+            }
+            else
+                Console.WriteLine("File does not exists");
+        }
+
+
+static void Main(string[] args)
+        {
+            FileStream fs = new FileStream("D:\\file11.txt", FileMode.Create);
+            StreamWriter sw = new StreamWriter(fs);
+            string str = "file handing using filestream class";
+            sw.WriteLine(str);
+            sw.Close();
+            fs.Close();
+        }
+
+static void Main(string[] args)
+        {
+            FileStream fs = new FileStream("D:\\file11.txt", FileMode.Open);
+            StreamReader sw = new StreamReader(fs);
+            string str = sw.ReadLine();
+            Console.WriteLine(str);
+            sw.Close();
+            fs.Close();
+        }
+
+static void Main(string[] args)
+        {
+            FileStream fs = new FileStream("D:\\file11.txt", FileMode.Append);
+            StreamWriter sw = new StreamWriter(fs);
+            string str = "file append operation";
+            sw.WriteLine(str);
+            sw.Close();
+            fs.Close();
+        }
+
+namespace ConsoleApp3
+{
+    //delegate -->function pointer
+    delegate void My_DelegateOne(int x);
+    class demo
+    {
+        public static void method1(int x)
+        {
+            Console.WriteLine("value of x="+x);
+        }
+        public static void method2(int x)
+        {
+            Console.WriteLine("square of x=" + x*x);
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            My_DelegateOne del1 = new My_DelegateOne(demo.method1);
+            del1(10);
+
+            My_DelegateOne del2 = new My_DelegateOne(demo.method2);
+            del2(5);
+        }
+    }
+}
+
+namespace ConsoleApp3
+{
+    //delegate -->function pointer
+    delegate void My_DelegateOne(string x,string y);
+    class demo
+    {
+        public static void method1(string x,string y)
+        {
+            Console.WriteLine(string.Concat(x,y));
+        }
+        public static void method2(string x, string y)
+        {
+            Console.WriteLine(string.Compare(x,y));
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            My_DelegateOne del1 = new My_DelegateOne(demo.method1);
+            del1("ASP",".NET");
+
+            My_DelegateOne del2 = new My_DelegateOne(demo.method2);
+            del2("C#","C#");
+        }
+    }
+}
+
+Multi-cast delegate:
+
+namespace ConsoleApp3
+{
+    //delegate -->function pointer
+    delegate void My_DelegateOne(int x,int y);
+    class demo
+    {
+        public  void method1(int x,int y)
+        {
+            Console.WriteLine(x+y);
+        }
+        public  void method2(int x, int y)
+        {
+            Console.WriteLine(x-y);
+        }
+        public  void method3(int x, int y)
+        {
+            Console.WriteLine(x * y);
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            demo obj = new demo();
+            My_DelegateOne del1 = new My_DelegateOne(obj.method1);
+            del1(100,200);
+
+            My_DelegateOne del2 = new My_DelegateOne(obj.method2);
+            del2(34,56);
+
+            My_DelegateOne del3 = new My_DelegateOne(obj.method3);
+            del3(14, 50);
+
+            Console.WriteLine("----Multi-cast-del-----");
+            My_DelegateOne del4 = del1 + del2 + del3;
+            del4(10, 25);
+
+            Console.WriteLine("--------------");
+            My_DelegateOne del5 = del1 + del2 - del3;
+            del5(100, 25);
+
+        }
+    }
+}
+
+Thread: class in threading namespace.(independent execution path)
+
+threadstart-->delegate
+
+Multithreading
+namespace ConsoleApp3
+{
+    class demo
+    {
+       public static void display()
+        {
+            for(int i=0;i<5;i++)
+            {
+                Console.WriteLine(i);
+            }
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Thread th1 = new Thread(new ThreadStart(demo.display));
+            th1.Start();
+        }
+    }
+}
+
+namespace ConsoleApp3
+{
+    class demo
+    {
+       public static void display()
+        {
+            for(int i=0;i<5;i++)
+            {
+                Console.WriteLine(i);
+                Thread.Sleep(2000);
+            }
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Thread th1 = new Thread(new ThreadStart(demo.display));
+            th1.Start();
+            Thread th2 = new Thread(new ThreadStart(demo.display));
+            th2.Start();
+            Thread th3 = new Thread(new ThreadStart(demo.display));
+            th3.Start();
+        }
+    }
+}
+
+thread synchronization/lock in thread:
+
+-->only thread allowed to access the resource,until the specific job done.
+-->other request coming from the threads cannot interrpt the thread execution.
+
+namespace ConsoleApp3
+{
+    class demo
+    {
+       public void display()
+        {
+            lock(this)
+            {
+                for (int i = 0; i < 5; i++)
+                {
+                    Console.WriteLine(i);
+                    Thread.Sleep(2000);
+                }
+            }
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            demo obj = new demo();
+            Thread th1 = new Thread(new ThreadStart(obj.display));
+            th1.Start();
+            Thread th2 = new Thread(new ThreadStart(obj.display));
+            th2.Start();
+            Thread th3 = new Thread(new ThreadStart(obj.display));
+            th3.Start();
+        }
+    }
+}
+
+Serialization:
+method of converting object into bytes(file,database,memory).
+
+De-Serialization:
+method of converting bytes into object.
+
+Binary serialisation
+
+using System.Runtime.Serialization.Formatters.Binary;
+
+using System.Runtime.Serialization.Formatters.Binary;
+
+namespace ConsoleApp3
+{
+    [Serializable]
+    class student
+    {
+        int regno;
+        string sname;
+        double marks;
+        public student(int regno,string sname,double marks)
+        {
+            this.regno = regno;
+            this.sname = sname;
+            this.marks = marks;
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+           FileStream fs = new FileStream("D:\\ser1.txt", FileMode.Create);
+            student obj = new student(1,"john",56.77);
+            BinaryFormatter fm = new BinaryFormatter();
+            fm.Serialize(fs, obj);
+            fs.Close();
+        }
+    }
+}
+
+ static void Main(string[] args)
+        {
+            FileStream fs = new FileStream("D:\\ser1.txt", FileMode.Open);
+            BinaryFormatter fm = new BinaryFormatter();
+            student obj = (student)fm.Deserialize(fs);
+            Console.WriteLine(obj.regno + "," + obj.sname + "," + obj.marks);
+            fs.Close();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
